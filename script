@@ -1,0 +1,37 @@
+// Aguarda o DOM carregar completamente
+document.addEventListener("DOMContentLoaded", function () {
+    
+    // Elementos dos botões
+    const btnIncrease = document.getElementById("increase-font");
+    const btnDecrease = document.getElementById("decrease-font");
+    const btnContrast = document.getElementById("toggle-contrast");
+
+    // Tamanho base inicial da fonte em porcentagem (melhor para acessibilidade)
+    let currentFontSize = 100;
+
+    // Função para Aumentar Fonte
+    btnIncrease.addEventListener("click", function () {
+        if (currentFontSize < 140) { // Limite máximo para não quebrar o layout
+            currentFontSize += 10;
+            document.documentElement.style.fontSize = currentFontSize + "%";
+        }
+    });
+
+    // Função para Diminuir Fonte
+    btnDecrease.addEventListener("click", function () {
+        if (currentFontSize > 80) { // Limite mínimo
+            currentFontSize -= 10;
+            document.documentElement.style.fontSize = currentFontSize + "%";
+        }
+    });
+
+    // Função para Alternar Alto Contraste
+    btnContrast.addEventListener("click", function () {
+        // Alterna a classe 'high-contrast' no elemento <body>
+        document.body.classList.toggle("high-contrast");
+        
+        // Atualiza o atributo aria-pressed para leitores de tela
+        const isPressed = document.body.classList.contains("high-contrast");
+        btnContrast.setAttribute("aria-pressed", isPressed);
+    });
+});
