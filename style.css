@@ -1,0 +1,188 @@
+/* Paleta de Cores Quentes: Terracota, Laranja, Amarelo Queimado */
+:root {
+    --bg-color: #FFFDF9;
+    --text-color: #4A2810;
+    --primary-color: #D96B27; /* Terracota / Laranja Quente */
+    --secondary-color: #F2B705; /* Amarelo Sol */
+    --accent-color: #8C2E0B; /* Castanho Escuro */
+    --card-bg: #FDF3E7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Barra de Acessibilidade */
+.accessibility-bar {
+    background-color: var(--accent-color);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.accessibility-bar button {
+    background-color: var(--secondary-color);
+    border: none;
+    color: #000;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.accessibility-bar button:hover {
+    filter: brightness(1.2);
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 0;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Práticas (Grid) */
+.section-title {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 60px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 15px;
+    color: var(--accent-color);
+}
+
+.card p {
+    padding: 0 15px 20px 15px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Classes de Alto Contraste (Injetadas pelo JS) */
+body.high-contrast {
+    --bg-color: #000000;
+    --text-color: #FFFFFF;
+    --primary-color: #FFFF00; /* Amarelo Acessível */
+    --secondary-color: #00FFFF; /* Ciano Acessível */
+    --accent-color: #111111;
+    --card-bg: #222222;
+}
+
+body.high-contrast header, 
+body.high-contrast footer {
+    color: #000000 !important;
+    background-color: #FFFF00 !important;
+}
+
+body.high-contrast nav ul a {
+    color: #000000 !important;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
